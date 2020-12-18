@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+.button {
+    height: 70px;
+    width: 70px;
+    background-color: antiquewhite;
+    color: grey;
+}
