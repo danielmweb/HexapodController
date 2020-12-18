@@ -22,7 +22,7 @@ app.use(express.json({ limit: "1mb" })); //set express to work with json data ty
 //TODO: set endpoint1
 
 app.get("/", (request, response) => {
-    response.sendFile(path.join(__dirname + "/index.html"));
+    response.sendFile(path.join(__dirname + "client/index.html"));
 });
 
 app.get("/test", (request, response) => {
