@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 //use the hosting service port or the port 3000 for local hosting
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, (error) => {
     if (error) {
