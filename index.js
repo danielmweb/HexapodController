@@ -14,16 +14,16 @@ app.listen(port, (error) => {
     }
 });
 
-app.use(express.static("client")); //deliver entry page
+app.use(express.static(path.join(__dirname + "/client"))); //deliver entry page
 app.use(express.json({ limit: "1mb" })); //set express to work with json data type
 
 //=========== API =============
 
 //TODO: set endpoint1
 
-app.get("/", (request, response) => {
-    response.sendFile(path.join(__dirname + "client/index.html"));
-});
+// app.get("/", (request, response) => {
+//     response.sendFile(path.join(__dirname + "/client/index.html"));
+// });
 
 app.get("/test", (request, response) => {
     console.log("Request: ", request.body);
