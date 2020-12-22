@@ -1,0 +1,189 @@
+:root {
+    --card-bg-dark: #333333;
+    --card-bg-light: #999999;
+    --text-light: #cccccc;
+    --btn-bg-dark: #222222;
+    --blue: #3498eb;
+}
+
+.container-ui {
+    background-color: var(--card-bg-dark);
+}
+
+.container-ui .button {
+    background-color: var(--btn-bg-dark);
+    color: var(--text-light);
+}
+
+.control-page .card {
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px black;
+    overflow: hidden;
+}
+
+/*desktop or a big mobile screen*/
+@media only screen and (min-width: 800px) {
+    .container-ui {
+        height: 70%;
+        width: 800px;
+        padding: 14px;
+    }
+
+    .container-ui .button:hover {
+        color: var(--blue);
+    }
+
+    .container-ui > * {
+        float: left;
+    }
+
+    .left-column {
+        height: 100%;
+        width: 35%;
+        padding-right: 7px;
+    }
+
+    .moves-card {
+        height: 100%;
+        width: 100%;
+        background-color: var(--card-bg-light);
+    }
+
+    .right-column {
+        height: 100%;
+        width: 65%;
+    }
+
+    .cam-card-container {
+        height: 50%;
+        width: 100%;
+        padding-left: 7px;
+        padding-bottom: 7px;
+    }
+
+    .control-card-container {
+        height: 50%;
+        width: 100%;
+        padding-left: 7px;
+        padding-top: 7px;
+    }
+
+    .cam-card {
+        height: 100%;
+        width: 100%;
+        background-color: var(--card-bg-light);
+    }
+
+    .control-card {
+        height: 100%;
+        width: 100%;
+        background-color: var(--card-bg-light);
+    }
+
+    .top-bar {
+        width: 100%;
+        height: 8%;
+    }
+
+    .top-bar > * {
+        float: left;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--btn-bg-dark);
+    }
+
+    .btn-clear-moves {
+        width: 30%;
+    }
+
+    .btn-remove-move {
+        width: 70%;
+    }
+
+    .moves-display {
+        width: 100%;
+        height: 45%;
+        background-color: var(--card-bg-light);
+        box-shadow: inset 0px 0px 10px var(--card-bg-dark);
+    }
+
+    .moves-keyboard {
+        height: 47%;
+        width: 100%;
+        background-color: var(--card-bg-dark);
+    }
+
+    .moves-keyboard .moves-table {
+        height: 50%;
+        width: 100%;
+        padding: 7px;
+        box-shadow: inset 0px 0px 20px var(--btn-bg-dark);
+        overflow: auto;
+    }
+
+    .moves-table .move-container {
+        float: left;
+        width: 33.33%;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .move {
+        width: 100%;
+        height: 50px;
+        background-color: var(--btn-bg-dark);
+        border-radius: 10px;
+        position: relative;
+        transition-property: position, box-shadow, background-color;
+        transition-duration: 500ms;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+    #move_left {
+        background-image: url("assets/icons/arrow_left.svg");
+    }
+    #move_forwards {
+        background-image: url("assets/icons/arrow_forward.svg");
+    }
+    #move_right {
+        background-image: url("assets/icons/arrow_right.svg");
+    }
+    #rot_left {
+        background-image: url("assets/icons/rotate_left.svg");
+    }
+    #move_backwards {
+        background-image: url("assets/icons/arrow_back.svg");
+    }
+    #rot_right {
+        background-image: url("assets/icons/rotate_right.svg");
+    }
+    .move:hover {
+        box-shadow: 5px 5px 5px yellow;
+        top: -5px;
+        left: -5px;
+    }
+
+    .move:active {
+        box-shadow: none;
+        top: 0px;
+        left: 0px;
+        background-color: var(--text-light);
+    }
+
+    .moves-keyboard .btns-container {
+        height: 50%;
+        width: 100%;
+    }
+
+    .moves-keyboard .btns-container > * {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

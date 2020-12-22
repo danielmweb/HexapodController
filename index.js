@@ -1,10 +1,15 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
 const path = require("path");
 
 //use the hosting service port or the port 3000 for local hosting
 const port = process.env.PORT || 3000;
+
+//server configs
+app.use(express.static(path.join(__dirname + "/landing_page")));
+app.use(express.json({ limit: "1mb" })); //set express to work with json data type
 
 app.listen(port, (error) => {
     if (error) {
@@ -14,25 +19,21 @@ app.listen(port, (error) => {
     }
 });
 
-app.use(express.static(path.join(__dirname + "/client"))); //deliver entry page
-app.use(express.json({ limit: "1mb" })); //set express to work with json data type
-
 //=========== API =============
 
 //TODO: set endpoint1
 
-// app.get("/", (request, response) => {
-//     response.sendFile(path.join(__dirname + "/client/index.html"));
-// });
+let password = process.env.ROBOT_PASSWORD;
+console.log("Password:", password);
 
-app.get("/test", (request, response) => {
-    console.log("Request: ", request.body);
-    response.end();
-});
-
-app.post("/test", (request, response) => {
-    console.log("Posted: ", request.body);
-    response.json({
-        msg: "This came from the server as a response to your post request"
-    });
+app.post("/check-password", (request, response) => {
+    console.log("Post request received");
+    let pw = request.body.password;
+    if (pw === password) {
+        console.log("Password accepted");
+        response.setHeader("Content-Type", "text/html");
+        response.sendFile(path.join(__dirname + "/control_page/index.html"));
+    } else {
+        console.log("Password rejected");
+    }
 });

@@ -1,0 +1,76 @@
+:root {
+    --bg-dark-card: #111111;
+    --text-color-light: #cccccc;
+    --blue: #3498eb;
+}
+
+.landing-page {
+    height: 100%;
+}
+
+.background {
+    background-image: url("assets/images/hexapod-img.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.access-card {
+    height: 300px;
+    width: 250px;
+    padding: 14px;
+    color: var(--text-color-light);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px var(--bg-dark-card);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.access-card > * {
+    margin-top: 20px;
+    user-select: none;
+}
+
+#password-field {
+    text-align: center;
+}
+
+.button:hover {
+    color: var(--blue);
+}
+
+@media only screen and (min-width: 800px) {
+    .access-card {
+        background-color: rgba(0, 0, 0, 0.3);
+        transition-property: background-color;
+        transition-duration: 500ms;
+    }
+
+    .access-card:hover {
+        background-color: var(--bg-dark-card);
+    }
+
+    .lens-layer {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition-property: background-color;
+        transition-duration: 500ms;
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    .access-card {
+        background-color: var(--bg-dark-card);
+    }
+}

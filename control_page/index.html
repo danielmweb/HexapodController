@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Hexapod Control</title>
+    </head>
+    <body>
+        <div class="container-ui card">
+            <div class="left-column">
+                <div class="card moves-card">
+                    <div class="top-bar">
+                        <div class="btn-clear-moves button">
+                            <p>Limpar</p>
+                        </div>
+                        <div class="btn-remove-move button">
+                            <p>Remover movimento</p>
+                        </div>
+                    </div>
+                    <div class="moves-display"></div>
+                    <div class="moves-keyboard">
+                        <div class="moves-table">
+                            <div class="move-container">
+                                <div class="move" id="rot_left"></div>
+                            </div>
+                            <div class="move-container">
+                                <div class="move" id="move_forwards"></div>
+                            </div>
+
+                            <div class="move-container">
+                                <div class="move" id="rot_right"></div>
+                            </div>
+
+                            <div class="move-container">
+                                <div class="move" id="move_left"></div>
+                            </div>
+
+                            <div class="move-container">
+                                <div class="move" id="move_backwards"></div>
+                            </div>
+
+                            <div class="move-container">
+                                <div class="move" id="move_right"></div>
+                            </div>
+                        </div>
+                        <div class="btns-container">
+                            <div class="btn-move-robot button">
+                                <p>Mover!</p>
+                            </div>
+                            <div class="btn-cancel-robot-move button">
+                                <p>Cancelar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="cam-card-container">
+                    <div class="cam-card card"></div>
+                </div>
+                <div class="control-card-container">
+                    <div class="control-card card"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
