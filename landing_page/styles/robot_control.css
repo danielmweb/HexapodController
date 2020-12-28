@@ -6,6 +6,25 @@
     --blue: #3498eb;
 }
 
+.button {
+    user-select: none;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: 250ms;
+}
+
+.background {
+    background-image: url("assets/images/hexapod-img.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container-ui {
     background-color: var(--card-bg-dark);
 }
@@ -15,7 +34,7 @@
     color: var(--text-light);
 }
 
-.control-page .card {
+.card {
     border-radius: 10px;
     box-shadow: 0px 0px 5px black;
     overflow: hidden;
@@ -83,6 +102,10 @@
     .top-bar {
         width: 100%;
         height: 8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--btn-bg-dark);
     }
 
     .top-bar > * {
@@ -96,10 +119,6 @@
 
     .btn-clear-moves {
         width: 30%;
-    }
-
-    .btn-remove-move {
-        width: 70%;
     }
 
     .moves-display {
@@ -121,6 +140,7 @@
         padding: 7px;
         box-shadow: inset 0px 0px 20px var(--btn-bg-dark);
         overflow: auto;
+        position: relative;
     }
 
     .moves-table .move-container {
@@ -135,6 +155,11 @@
     .move {
         width: 100%;
         height: 50px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+
         background-color: var(--btn-bg-dark);
         border-radius: 10px;
         position: relative;
@@ -143,29 +168,43 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: 50%;
+
+        cursor: pointer;
     }
-    #move_left {
-        background-image: url("assets/icons/arrow_left.svg");
-    }
-    #move_forwards {
-        background-image: url("assets/icons/arrow_forward.svg");
-    }
-    #move_right {
-        background-image: url("assets/icons/arrow_right.svg");
-    }
-    #rot_left {
-        background-image: url("assets/icons/rotate_left.svg");
-    }
-    #move_backwards {
-        background-image: url("assets/icons/arrow_back.svg");
-    }
-    #rot_right {
-        background-image: url("assets/icons/rotate_right.svg");
-    }
+
     .move:hover {
         box-shadow: 5px 5px 5px yellow;
         top: -5px;
         left: -5px;
+    }
+
+    .tooltip-text {
+        position: absolute;
+        visibility: hidden;
+        background-color: var(--card-bg-light);
+        z-index: 1;
+        top: 105%;
+        font-size: 12px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 2px;
+        user-select: none;
+    }
+
+    .move:hover .tooltip-text {
+        animation-name: show-tooltip;
+        animation-duration: 250ms;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes show-tooltip {
+        from {
+            visibility: hidden;
+        }
+        to {
+            visibility: visible;
+        }
     }
 
     .move:active {
@@ -173,6 +212,49 @@
         top: 0px;
         left: 0px;
         background-color: var(--text-light);
+    }
+
+    #add-move-btn {
+        background-image: url("assets/icons/add_move.svg");
+    }
+
+    .desc-bar-container {
+        position: fixed;
+        z-index: 1000;
+        overflow: hidden;
+        display: none;
+
+        background-color: var(--card-bg-light);
+        transition-property: height;
+        transition-duration: 500ms;
+        width: 238.2px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .cancel-add-custom {
+        width: 10%;
+        height: 2.5ch;
+        background-image: url("assets/icons/remove.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        /* background-size: 50%; */
+        background-color: var(--btn-bg-dark);
+    }
+
+    .desc-bar-container > * {
+        float: left;
+    }
+
+    #desc-field {
+        width: 70%;
+        height: 2.5ch;
+    }
+
+    .btn-create-desc {
+        width: 20%;
+        height: 2.5ch;
+        text-align: center;
     }
 
     .moves-keyboard .btns-container {
@@ -186,4 +268,92 @@
         justify-content: center;
         align-items: center;
     }
+
+    .moves-display {
+        display: flex;
+
+        flex-direction: column;
+        flex-wrap: unset;
+        align-items: center;
+        overflow: auto;
+        background-color: #555555;
+    }
+
+    .displayed-move-container {
+        width: 80%;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .displayed-move {
+        width: 33.33%;
+        height: 50px;
+        background-color: var(--btn-bg-dark);
+        border-radius: 10px;
+        transition-property: background-color;
+        transition-duration: 250ms;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+        cursor: pointer;
+    }
+
+    .option {
+        width: 33.33%;
+        background-color: var(--card-bg-light);
+        height: 50px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .remove-move-option {
+        background-image: url("assets/icons/remove.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+
+    .options-keyboard-move-container {
+        position: absolute;
+        top: 105%;
+        z-index: 2;
+        visibility: hidden;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .options-keyboard-move-container > * {
+        float: left;
+        background-color: var(--card-bg-light);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+        height: 30px;
+        width: 50%;
+    }
+
+    .remove-keyboard-move {
+        background-image: url("assets/icons/delete_move.svg");
+    }
+
+    .cancel-remove-keyboard-move {
+        background-image: url("assets/icons/remove.svg");
+    }
 }
+
+/*I'm having the issue that the displayed moves are overflowing their container, even though some of them 
+are still inside the container and are visible through scrolling down. 
+Solution: 
+
+What was causing the problem is that the container was set to with the flex 
+property justify-content: center, which was causing the items inside the 
+container to overflow to the top in order for the container to have its
+flex items centralized inside him. So, if i had 9 elements, and 4 of them 
+where to overflow to the bottom of the container, they would instead overflow
+2 to the bottom (those which i could access using the scrollbar) and 2 to the 
+top, where they would be hidden.
+
+*/

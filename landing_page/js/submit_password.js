@@ -10,15 +10,20 @@ async function sendPassword() {
     };
 
     let resp = await fetch("/check-password", req);
-    if (resp.statusText != "OK") {
-        console.log("Wrong password");
+    resp = await resp.text();
+
+    if (!resp) {
+        console.log("wrong password");
         return;
     }
-    console.log(resp);
-    let html = await resp.text();
 
-    $("#current-page").html(html).removeClass("landing-page");
-    $("#current-page").html(html).addClass("control-page");
+    //replaces the login screen with the control ui received from the sever
+
+    $("head").append(
+        `<link rel="stylesheet" href="styles/robot_control.css" />`
+    );
+    $(".background").html(resp);
+    $("body").append(`<script src="js/control_page.js">`);
 }
 
 //submit the password using the button or pressing enter
