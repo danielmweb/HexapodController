@@ -82,9 +82,33 @@ app.post("/move-stream", (request, response) => {
     let body = request.body;
     console.log("moveStrings received:", body);
     moveStream = body;
+    response.end();
 });
 
 app.get("/move-stream", (request, response) => {
     response.json(moveStream);
     moveStream = ""; //each request consumes the moveStream variable
+});
+
+app.get("/all-data", (request, response) => {
+    let data = {
+        ch1: {
+            hasData: false,
+            jrx: 50,
+            jry: 50,
+            jlx: 50,
+            jly: 50
+        },
+        ch2: {
+            hasData: true,
+            command: "walk"
+        },
+        ch3: {
+            hasData: moveStream != "",
+            moves: moveStream
+        }
+    };
+
+    response.json(data);
+    moveStream = "";
 });

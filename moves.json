@@ -1,1 +1,50 @@
-[{"id":"rot_left","description":"Vire à esquerda","icon":"styles/assets/icons/rotate_left.svg","idIsMoveString":true,"moveString":"rot_left#","domElement":"\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"rot_left\">\n                <p class=\"tooltip-text\">\n                    Vire à esquerda\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"},{"id":"move_forwards","description":"Ande para frente","icon":"styles/assets/icons/arrow_forward.svg","idIsMoveString":true,"moveString":"move_forwards#","domElement":"\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_forwards\">\n                <p class=\"tooltip-text\">\n                    Ande para frente\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"},{"id":"rot_right","description":"Vire à direita","icon":"styles/assets/icons/rotate_right.svg","idIsMoveString":true,"moveString":"rot_right#","domElement":"\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"rot_right\">\n                <p class=\"tooltip-text\">\n                    Vire à direita\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"},{"id":"move_left","description":"Ande para esquerda","icon":"styles/assets/icons/arrow_left.svg","idIsMoveString":true,"moveString":"move_left#","domElement":"\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_left\">\n                <p class=\"tooltip-text\">\n                    Ande para esquerda\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"},{"id":"move_backwards","description":"Ande para trás","icon":"styles/assets/icons/arrow_back.svg","idIsMoveString":true,"moveString":"move_backwards#","domElement":"\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_backwards\">\n                <p class=\"tooltip-text\">\n                    Ande para trás\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"},{"id":"move_right","description":"Ande para direita","icon":"styles/assets/icons/arrow_right.svg","idIsMoveString":true,"moveString":"move_right#","domElement":"\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_right\">\n                <p class=\"tooltip-text\">\n                    Ande para direita\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"}]
+[
+    {
+        "id": "rot_left",
+        "description": "Vire à esquerda",
+        "icon": "styles/assets/icons/rotate_left.svg",
+        "idIsMoveString": true,
+        "moveString": "rot_left#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"rot_left\">\n                <p class=\"tooltip-text\">\n                    Vire à esquerda\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "move_forwards",
+        "description": "Ande para frente",
+        "icon": "styles/assets/icons/arrow_forward.svg",
+        "idIsMoveString": true,
+        "moveString": "move_forwards#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_forwards\">\n                <p class=\"tooltip-text\">\n                    Ande para frente\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "rot_right",
+        "description": "Vire à direita",
+        "icon": "styles/assets/icons/rotate_right.svg",
+        "idIsMoveString": true,
+        "moveString": "rot_right#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"rot_right\">\n                <p class=\"tooltip-text\">\n                    Vire à direita\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "move_left",
+        "description": "Ande para esquerda",
+        "icon": "styles/assets/icons/arrow_left.svg",
+        "idIsMoveString": true,
+        "moveString": "move_left#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_left\">\n                <p class=\"tooltip-text\">\n                    Ande para esquerda\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "move_backwards",
+        "description": "Ande para trás",
+        "icon": "styles/assets/icons/arrow_back.svg",
+        "idIsMoveString": true,
+        "moveString": "move_backwards#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_backwards\">\n                <p class=\"tooltip-text\">\n                    Ande para trás\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "move_right",
+        "description": "Ande para direita",
+        "icon": "styles/assets/icons/arrow_right.svg",
+        "idIsMoveString": true,
+        "moveString": "move_right#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_right\">\n                <p class=\"tooltip-text\">\n                    Ande para direita\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    }
+]
