@@ -105,7 +105,7 @@ app.get("/all-data", (request, response) => {
         },
         ch3: {
             hasData: moveStream != "",
-            moves: moveStream
+            moves: moveStream.moveStrings
         }
     };
 
