@@ -437,6 +437,28 @@ $(".btn-move-robot").click(async function () {
     resp = await resp.text();
     console.log("response:", resp);
 });
+
+async function sendCommand(cmd) {
+    let req = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ command: cmd })
+    };
+
+    let resp = await fetch("/command", req);
+    resp = await resp.text();
+    console.log("Response from command: ", resp);
+}
+
+$(".btn-getUp").click(() => {
+    sendCommand("getUp");
+});
+
+$(".btn-getDown").click(() => {
+    sendCommand("getDown");
+});
 /*
 
 Each move is going to be represented as an object which has the property 

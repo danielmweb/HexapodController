@@ -264,14 +264,40 @@
 
     .moves-keyboard .btns-container > * {
         height: 50%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
+    .btns-container .first-row {
+        background-color: var(--btn-bg-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .first-row > * {
+        width: 33.33%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .btn-getUp {
+        background-image: url("assets/icons/get_up.svg");
+    }
+
+    .btn-getDown {
+        background-image: url("assets/icons/get_down.svg");
+    }
+
     .moves-display {
         display: flex;
-
         flex-direction: column;
         flex-wrap: unset;
         align-items: center;

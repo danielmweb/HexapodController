@@ -15,6 +15,7 @@ const movesPath = "moves.json";
 let password = process.env.ROBOT_PASSWORD;
 let moves = [];
 let moveStream = "";
+let command = "";
 // ============ Configs ============
 app.use(express.static(path.join(__dirname + "/landing_page")));
 
@@ -85,6 +86,13 @@ app.post("/move-stream", (request, response) => {
     response.end();
 });
 
+app.post("/command", (request, response) => {
+    let body = request.body;
+    console.log("command received: ", body);
+    command = body.command;
+    response.send("Command saved");
+});
+
 app.get("/move-stream", (request, response) => {
     response.json(moveStream);
     moveStream = ""; //each request consumes the moveStream variable
@@ -100,8 +108,8 @@ app.get("/all-data", (request, response) => {
             jly: 50
         },
         ch2: {
-            hasData: true,
-            command: "walk"
+            hasData: command != "",
+            command: command
         },
         ch3: {
             hasData: moveStream != "",
@@ -111,4 +119,5 @@ app.get("/all-data", (request, response) => {
 
     response.json(data);
     moveStream = "";
+    command = "";
 });
