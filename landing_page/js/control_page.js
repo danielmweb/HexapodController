@@ -477,6 +477,7 @@ async function updateIsUp() {
     let resp = await fetch("/isUp");
     resp = await resp.text();
     isUp = resp;
+    console.log("isUp: ", isUp);
 }
 
 $(".btn-getUp").click(() => {
