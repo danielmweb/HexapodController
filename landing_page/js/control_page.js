@@ -446,7 +446,7 @@ $(".btn-move-robot").click(async function () {
     }
     //if the robot is not up then flash red the getUp btn
 
-    if (!resp.isUp) {
+    if (resp.isUp == "0") {
         colorEffect(".btn-getUp", "#ff0000");
     } else {
         colorEffect(".btn-move-robot", "#00ff00");
