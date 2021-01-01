@@ -435,7 +435,7 @@ $(".btn-move-robot").click(async function () {
     console.log("sending: ", data);
     let resp = await fetch("/move-stream", req);
     resp = await resp.json();
-    console.log("response:", resp);
+    console.log("response:", resp.isUp);
 });
 
 async function sendCommand(cmd) {
