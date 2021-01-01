@@ -107,6 +107,7 @@ app.get("/move-and-cancel", (request, response) => {
         moves: moveStream.moveStrings
     };
     response.json(data);
+    cancel = "no";
 });
 
 app.post("/cancel", (request, response) => {
