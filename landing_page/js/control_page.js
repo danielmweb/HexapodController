@@ -474,7 +474,7 @@ async function sendCommand(cmd) {
 }
 
 async function updateIsUp() {
-    let resp = await fetch("/isUp");
+    let resp = await fetch("/is-up");
     resp = await resp.text();
     isUp = resp;
     console.log("isUp: ", isUp);

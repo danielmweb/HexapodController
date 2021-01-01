@@ -99,8 +99,8 @@ app.get("/move-stream", (request, response) => {
     moveStream = ""; //each request consumes the moveStream variable
 });
 
-app.get("/isUp", (request, response) => {
-    response.text(isUp);
+app.get("/is-up", (request, response) => {
+    response.send(isUp);
 });
 
 let cancel = "no";
