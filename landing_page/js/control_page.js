@@ -475,8 +475,8 @@ async function sendCommand(cmd) {
 
 async function updateIsUp() {
     let resp = await fetch("/is-up");
-    resp = await resp.text();
-    isUp = resp;
+    resp = await resp.json();
+    isUp = resp.isUp;
     console.log("isUp: ", isUp);
 }
 
@@ -484,10 +484,10 @@ $(".btn-getUp").click(() => {
     updateIsUp();
     if (isUp == "0") {
         sendCommand("getUp");
-        colorEffect(".btn-getUp", "#00ff00");
+        colorEffect(".btn-getUp", "#00ff00"); //green
     } else {
         //update isUp when clicking
-        colorEffect(".btn-getUp", "#ff000");
+        colorEffect(".btn-getUp", "#ff000"); //red
     }
 });
 
@@ -495,10 +495,10 @@ $(".btn-getDown").click(() => {
     updateIsUp();
     if (isUp == "1") {
         sendCommand("getDown");
-        colorEffect(".btn-getDown", "#00ff00");
+        colorEffect(".btn-getDown", "#00ff00"); //green
     } else {
         //update isUp when clicking
-        colorEffect(".btn-getDown", "#ff0000");
+        colorEffect(".btn-getDown", "#ff0000"); //red
     }
 });
 
