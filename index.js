@@ -98,7 +98,7 @@ app.get("/move-stream", (request, response) => {
     moveStream = ""; //each request consumes the moveStream variable
 });
 
-app.get("/all-data", (request, response) => {
+app.post("/all-data", (request, response) => {
     let data = {
         ch1: {
             hasData: false,
@@ -120,4 +120,5 @@ app.get("/all-data", (request, response) => {
     response.json(data);
     moveStream = "";
     command = "";
+    console.log(request.body);
 });
