@@ -402,7 +402,7 @@ async function sendMoves(callback) {
     };
     let resp = await fetch("/save-moves", req);
     let status = await resp.json();
-    console.log("resp: ", status);
+    console.log("resp: ", status.isUp);
     if (callback) {
         callback();
     }
