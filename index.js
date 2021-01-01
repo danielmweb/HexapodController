@@ -111,7 +111,7 @@ app.get("/move-and-cancel", (request, response) => {
 });
 
 app.post("/cancel", (request, response) => {
-    cancel = request.body;
+    cancel = request.body.cancel;
     console.log("Received cancel: ", cancel);
     response.end();
 });

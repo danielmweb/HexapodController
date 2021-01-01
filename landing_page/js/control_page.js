@@ -498,7 +498,7 @@ $(".btn-cancel-robot-move").click(() => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: "yes" //this is cancel
+        body: JSON.stringify({ cancel: "yes" }) //this is cancel
     };
 
     fetch("/cancel", req);
