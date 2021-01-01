@@ -16,6 +16,7 @@ let password = process.env.ROBOT_PASSWORD;
 let moves = [];
 let moveStream = "";
 let command = "";
+let isUp;
 // ============ Configs ============
 app.use(express.static(path.join(__dirname + "/landing_page")));
 
@@ -83,7 +84,7 @@ app.post("/move-stream", (request, response) => {
     let body = request.body;
     console.log("moveStrings received:", body);
     moveStream = body;
-    response.end();
+    response.send(isUp);
 });
 
 app.post("/command", (request, response) => {
@@ -120,5 +121,5 @@ app.post("/all-data", (request, response) => {
     response.json(data);
     moveStream = "";
     command = "";
-    console.log(request.body);
+    isUp = request.body.isUp;
 });
