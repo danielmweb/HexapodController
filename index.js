@@ -99,6 +99,22 @@ app.get("/move-stream", (request, response) => {
     moveStream = ""; //each request consumes the moveStream variable
 });
 
+let cancel = "no";
+
+app.get("/move-and-cancel", (request, response) => {
+    let data = {
+        cancel: cancel,
+        moves: moveStream.moveStrings
+    };
+    response.json(data);
+});
+
+app.post("/cancel", (request, response) => {
+    cancel = request.body;
+    console.log("Received cancel: ", cancel);
+    response.end();
+});
+
 app.post("/all-data", (request, response) => {
     let data = {
         ch1: {

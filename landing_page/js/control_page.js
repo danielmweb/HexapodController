@@ -413,11 +413,13 @@ $(".btn-clear-moves").click(() => {
     updateDisplayedMoves();
 });
 
+let isUp;
 $(".btn-move-robot").click(async function () {
     let data = {
         moveStrings: ""
     };
     if (displayedMoves.length <= 0) {
+        colorEffect(".btn-move-robot", "#ff0000");
         return; //if theres no displayed move then get out of here
     }
     //concatenates all the displayed moves into a variable
@@ -433,11 +435,31 @@ $(".btn-move-robot").click(async function () {
         body: JSON.stringify(data)
     };
     console.log("sending: ", data);
-    let resp = await fetch("/move-stream", req);
-    resp = await resp.json();
-    console.log("response:", resp.isUp);
+    let resp;
+    try {
+        resp = await fetch("/move-stream", req);
+        resp = await resp.json();
+        isUp = resp.isUp;
+    } catch (error) {
+        console.log("Could not read response from server");
+        colorEffect(".btn-move-robot", "#ff0000");
+    }
+    //if the robot is not up then flash red the getUp btn
+
+    if (!resp.isUp) {
+        colorEffect(".btn-getUp", "#ff0000");
+    } else {
+        colorEffect(".btn-move-robot", "#00ff00");
+    }
 });
 
+function colorEffect(selector, effectColor, endColor) {
+    endColor =
+        endColor == undefined ? $(selector).css("background-color") : endColor;
+    $(selector).animate({ backgroundColor: effectColor }, 250, "swing", () => {
+        $(selector).animate({ backgroundColor: endColor }, 250);
+    });
+}
 async function sendCommand(cmd) {
     let req = {
         method: "POST",
@@ -449,15 +471,37 @@ async function sendCommand(cmd) {
 
     let resp = await fetch("/command", req);
     resp = await resp.text();
-    console.log("Response from command: ", resp);
 }
 
 $(".btn-getUp").click(() => {
-    sendCommand("getUp");
+    if (!isUp) {
+        sendCommand("getUp");
+        colorEffect(".btn-getUp", "#00ff00");
+    } else {
+        colorEffect(".btn-getUp", "#ff000");
+    }
 });
 
 $(".btn-getDown").click(() => {
-    sendCommand("getDown");
+    if (isUp) {
+        sendCommand("getDown");
+        colorEffect(".btn-getDown", "#00ff00");
+    } else {
+        colorEffect(".btn-getDown", "#ff0000");
+    }
+});
+
+$(".btn-cancel-robot-move").click(() => {
+    //send cancel
+    let req = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: "yes" //this is cancel
+    };
+
+    fetch("/cancel", req);
 });
 /*
 
