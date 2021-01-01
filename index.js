@@ -121,5 +121,5 @@ app.post("/all-data", (request, response) => {
     response.json(data);
     moveStream = "";
     command = "";
-    isUp = request.body.isUp;
+    isUp = request.body;
 });
