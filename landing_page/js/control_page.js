@@ -473,20 +473,30 @@ async function sendCommand(cmd) {
     resp = await resp.text();
 }
 
+async function updateIsUp() {
+    let resp = await fetch("/isUp");
+    resp = await resp.text();
+    isUp = resp;
+}
+
 $(".btn-getUp").click(() => {
+    updateIsUp();
     if (isUp == "0") {
         sendCommand("getUp");
         colorEffect(".btn-getUp", "#00ff00");
     } else {
+        //update isUp when clicking
         colorEffect(".btn-getUp", "#ff000");
     }
 });
 
 $(".btn-getDown").click(() => {
+    updateIsUp();
     if (isUp == "1") {
         sendCommand("getDown");
         colorEffect(".btn-getDown", "#00ff00");
     } else {
+        //update isUp when clicking
         colorEffect(".btn-getDown", "#ff0000");
     }
 });
