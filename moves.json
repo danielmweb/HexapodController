@@ -46,5 +46,21 @@
         "idIsMoveString": true,
         "moveString": "move_right#",
         "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"move_right\">\n                <p class=\"tooltip-text\">\n                    Ande para direita\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "custom1",
+        "description": "virar 90 direita",
+        "icon": "styles/assets/icons/custom_move.svg",
+        "idIsMoveString": false,
+        "moveString": "rot_right#rot_right#rot_right#rot_right#rot_right#rot_right#rot_right#rot_right#rot_right#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"custom1\">\n                <p class=\"tooltip-text\">\n                    virar 90 direita\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
+    },
+    {
+        "id": "custom2",
+        "description": "virar 90 esquerda",
+        "icon": "styles/assets/icons/custom_move.svg",
+        "idIsMoveString": false,
+        "moveString": "rot_left#rot_left#rot_left#rot_left#rot_left#rot_left#rot_left#rot_left#rot_left#rot_left#",
+        "domElement": "\n        <div class=\"move-container\">\n            <div class=\"move\" id=\"custom2\">\n                <p class=\"tooltip-text\">\n                    virar 90 esquerda\n                </p>\n                <div class=\"options-keyboard-move-container\">\n                \n                    <div class=\"remove-keyboard-move\">\n                    </div>\n                    <div class=\"cancel-remove-keyboard-move\">\n                    </div>\n                \n                </div>\n                \n            </div>\n        </div>"
     }
 ]

@@ -48,7 +48,6 @@ console.log("Password:", password);
 //=========== API =============
 
 app.post("/check-password", (request, response) => {
-    console.log("Post request received");
     let pw = request.body.password;
     if (pw === password) {
         console.log("Password accepted");
@@ -70,7 +69,6 @@ app.post("/save-moves", (request, response) => {
         readMovesFile();
     } catch (error) {
         console.log(error);
-
         console.log("error writing to moves.json");
         response.send("Error saving moves");
     }
@@ -112,6 +110,7 @@ app.get("/move-and-cancel", (request, response) => {
     };
     response.json(data);
     cancel = "no";
+    moveStream.moveStrings = "";
 });
 
 app.post("/cancel", (request, response) => {

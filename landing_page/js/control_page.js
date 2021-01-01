@@ -434,7 +434,7 @@ $(".btn-move-robot").click(async function () {
         },
         body: JSON.stringify(data)
     };
-    console.log("sending: ", data);
+    //console.log("sending: ", data);
     let resp;
     try {
         resp = await fetch("/move-stream", req);
@@ -471,35 +471,50 @@ async function sendCommand(cmd) {
 
     let resp = await fetch("/command", req);
     resp = await resp.text();
+    //console.log("Received from command: ", resp);
 }
 
-async function updateIsUp() {
-    let resp = await fetch("/is-up");
-    resp = await resp.json();
-    isUp = resp.isUp;
-    console.log("isUp: ", isUp);
+async function updateIsUp(move) {
+    try {
+        let resp = await fetch("/is-up");
+        resp = await resp.json();
+        isUp = resp.isUp;
+        console.log("isUp: ", isUp);
+        if (move == "up") {
+            checkGetUp();
+        } else if (move == "down") {
+            checkGetDown();
+        }
+    } catch (error) {
+        console.log("Couldn't update isUp");
+    }
+}
+
+function checkGetUp() {
+    if (isUp == "0") {
+        colorEffect(".btn-getUp", "#00ff00"); //green
+        sendCommand("getUp");
+    } else {
+        colorEffect(".btn-getUp", "#ff0000"); //red
+    }
 }
 
 $(".btn-getUp").click(() => {
-    updateIsUp();
-    if (isUp == "0") {
-        sendCommand("getUp");
-        colorEffect(".btn-getUp", "#00ff00"); //green
-    } else {
-        //update isUp when clicking
-        colorEffect(".btn-getUp", "#ff000"); //red
-    }
+    updateIsUp("up");
 });
 
-$(".btn-getDown").click(() => {
-    updateIsUp();
+function checkGetDown() {
     if (isUp == "1") {
-        sendCommand("getDown");
         colorEffect(".btn-getDown", "#00ff00"); //green
+        sendCommand("getDown");
     } else {
         //update isUp when clicking
         colorEffect(".btn-getDown", "#ff0000"); //red
     }
+}
+
+$(".btn-getDown").click(() => {
+    updateIsUp("down");
 });
 
 $(".btn-cancel-robot-move").click(() => {
