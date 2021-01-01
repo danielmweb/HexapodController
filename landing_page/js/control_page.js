@@ -474,7 +474,7 @@ async function sendCommand(cmd) {
 }
 
 $(".btn-getUp").click(() => {
-    if (!isUp) {
+    if (isUp == "0") {
         sendCommand("getUp");
         colorEffect(".btn-getUp", "#00ff00");
     } else {
@@ -483,7 +483,7 @@ $(".btn-getUp").click(() => {
 });
 
 $(".btn-getDown").click(() => {
-    if (isUp) {
+    if (isUp == "1") {
         sendCommand("getDown");
         colorEffect(".btn-getDown", "#00ff00");
     } else {
