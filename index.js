@@ -84,7 +84,7 @@ app.post("/move-stream", (request, response) => {
     let body = request.body;
     console.log("moveStrings received:", body);
     moveStream = body;
-    response.send(isUp);
+    response.json(isUp);
 });
 
 app.post("/command", (request, response) => {
