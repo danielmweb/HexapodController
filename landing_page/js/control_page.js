@@ -401,8 +401,8 @@ async function sendMoves(callback) {
         body: JSON.stringify(moves)
     };
     let resp = await fetch("/save-moves", req);
-    let status = await resp.json();
-    console.log("resp: ", status.isUp.isUp);
+    let status = await resp.text();
+    console.log("status: ", status);
     if (callback) {
         callback();
     }
@@ -434,7 +434,7 @@ $(".btn-move-robot").click(async function () {
     };
     console.log("sending: ", data);
     let resp = await fetch("/move-stream", req);
-    resp = await resp.text();
+    resp = await resp.json();
     console.log("response:", resp);
 });
 
