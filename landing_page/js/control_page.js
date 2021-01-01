@@ -401,8 +401,8 @@ async function sendMoves(callback) {
         body: JSON.stringify(moves)
     };
     let resp = await fetch("/save-moves", req);
-    let status = await resp.text();
-    console.log("status: ", status);
+    let status = await resp.json();
+    console.log("resp: ", status);
     if (callback) {
         callback();
     }
