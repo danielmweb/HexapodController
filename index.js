@@ -30,7 +30,7 @@ server.listen(port, (error) => {
     if (error) {
         console.log("Error while starting server :/");
     } else {
-        console.log("Server up");
+        console.log("Server up on port ", port);
     }
 });
 
