@@ -63,6 +63,14 @@ console.log("Password:", password);
 
 //TODO: replace this api with socket.io
 
+app.get("/socket.io", () => {
+    console.log("received socketio on get");
+});
+
+app.post("/socket.io", () => {
+    console.log("received socketio on post");
+});
+
 app.post("/check-password", (request, response) => {
     let pw = request.body.password;
     if (pw === password) {
