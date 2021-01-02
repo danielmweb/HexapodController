@@ -1,3 +1,5 @@
+const socket = io();
+
 async function sendPassword() {
     let password = $("#password-field").val();
 
@@ -27,10 +29,14 @@ async function sendPassword() {
 }
 
 //submit the password using the button or pressing enter
-$("#btnSubmitPw").on("click", sendPassword);
+function submit() {
+    sendPassword();
+}
+
+$("#btnSubmitPw").on("click", submit);
 $("#password-field").keyup((event) => {
     if (event.key == "Enter") {
-        sendPassword();
+        submit();
     }
 });
 

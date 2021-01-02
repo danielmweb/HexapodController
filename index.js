@@ -1,11 +1,15 @@
 // =========imports========
 const express = require("express");
-const app = express();
+const http = require("http");
 const fs = require("fs");
-require("dotenv").config();
 const path = require("path");
+const socketio = require("socket.io");
 
-//use the hosting service port or the port 3000 for local hosting
+//========= setup ============
+const app = express();
+require("dotenv").config();
+const server = http.createServer(app);
+const io = socketio(server);
 
 // =========== Variables ============
 
@@ -22,7 +26,7 @@ app.use(express.static(path.join(__dirname + "/landing_page")));
 
 app.use(express.json({ limit: "1mb" })); //set express to work with json data type
 
-app.listen(port, (error) => {
+server.listen(port, (error) => {
     if (error) {
         console.log("Error while starting server :/");
     } else {
@@ -30,6 +34,15 @@ app.listen(port, (error) => {
     }
 });
 
+//============= Testing area ==============
+
+//all goes inside the connection because we only wanna set things once a
+//connection was made.
+io.on("connection", (socket) => {
+    console.log("New connection! Uhuull!");
+    console.log("emitting to hexapod...");
+    socket.emit("test", "This message was sent from the server");
+});
 //============ Server Code ===========
 
 function readMovesFile() {
@@ -46,6 +59,8 @@ readMovesFile();
 console.log("Password:", password);
 
 //=========== API =============
+
+//TODO: replace this api with socket.io
 
 app.post("/check-password", (request, response) => {
     let pw = request.body.password;
