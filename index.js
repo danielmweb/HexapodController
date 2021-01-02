@@ -21,7 +21,7 @@ const app = express();
 require("dotenv").config();
 const server = http.Server(app).listen(port);
 // const io = socketio(server, { path: "/socket.io/?transport=websocket" });
-const io = socketio(server).listen(http);
+const io = socketio.listen(http);
 
 console.log("server path:", io.path);
 
