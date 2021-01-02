@@ -9,7 +9,7 @@ const socketio = require("socket.io");
 const app = express();
 require("dotenv").config();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, { path: "/socket.io/?transport=websocket" });
 
 // =========== Variables ============
 
