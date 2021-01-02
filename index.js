@@ -10,7 +10,7 @@ const app = express();
 require("dotenv").config();
 const server = http.createServer(app);
 // const io = socketio(server, { path: "/socket.io/?transport=websocket" });
-const io = socketio(server);
+const io = socketio(server, { path: "/socket.io/?transport=websocket" });
 
 // =========== Variables ============
 
@@ -65,7 +65,10 @@ console.log("Password:", password);
 
 app.get("/port-number", (request, response) => {
     console.log("Received port request.");
-    response.json({ port: port });
+    let data = {
+        port: port
+    };
+    response.json(data);
 });
 
 app.post("/check-password", (request, response) => {
