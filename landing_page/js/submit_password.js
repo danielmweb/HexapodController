@@ -34,7 +34,7 @@ $("#password-field").keyup((event) => {
     }
 });
 
-//TEMPORARY CODE
-window.onload = function () {
-    document.getElementById("password-field").focus();
-};
+// //TEMPORARY CODE
+// window.onload = function () {
+//     document.getElementById("password-field").focus();
+// };
