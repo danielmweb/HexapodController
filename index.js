@@ -5,15 +5,6 @@ const fs = require("fs");
 const path = require("path");
 const socketio = require("socket.io");
 
-//========= setup ============
-const app = express();
-require("dotenv").config();
-const server = http.Server(app);
-// const io = socketio(server, { path: "/socket.io/?transport=websocket" });
-const io = socketio(server).listen(http);
-
-console.log("server path:", io.path);
-
 // =========== Variables ============
 
 const port = process.env.PORT || 3000;
@@ -24,18 +15,28 @@ let moves = [];
 let moveStream = "";
 let command = "";
 let isUp;
+
+//========= setup ============
+const app = express();
+require("dotenv").config();
+const server = http.Server(app).listen(port);
+// const io = socketio(server, { path: "/socket.io/?transport=websocket" });
+const io = socketio(server).listen(http);
+
+console.log("server path:", io.path);
+
 // ============ Configs ============
 app.use(express.static(path.join(__dirname + "/landing_page")));
 
 app.use(express.json({ limit: "1mb" })); //set express to work with json data type
 
-server.listen(port, (error) => {
-    if (error) {
-        console.log("Error while starting server :/");
-    } else {
-        console.log("Server up on port ", port);
-    }
-});
+// server.listen(port, (error) => {
+//     if (error) {
+//         console.log("Error while starting server :/");
+//     } else {
+//         console.log("Server up on port ", port);
+//     }
+// });
 
 //============= Testing area ==============
 
