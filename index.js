@@ -12,6 +12,8 @@ const server = http.createServer(app);
 // const io = socketio(server, { path: "/socket.io/?transport=websocket" });
 const io = socketio(server);
 
+console.log("server path:", io.path);
+
 // =========== Variables ============
 
 const port = process.env.PORT || 3000;
