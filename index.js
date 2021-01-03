@@ -20,7 +20,7 @@ let isUp;
 const app = express();
 require("dotenv").config();
 const server = http.createServer(app);
-const io = socketio(app);
+const io = socketio(server);
 
 // ============ Configs ============
 app.use(express.static(path.join(__dirname + "/landing_page")));
