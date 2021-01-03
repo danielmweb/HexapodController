@@ -1,5 +1,9 @@
 const socket = io();
 
+socket.on("test", (data) => {
+    console.log("Received socketio:", data);
+});
+
 async function sendPassword() {
     let password = $("#password-field").val();
 
