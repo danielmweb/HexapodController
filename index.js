@@ -19,24 +19,21 @@ let isUp;
 //========= setup ============
 const app = express();
 require("dotenv").config();
-const server = http.Server(app).listen(port);
-// const io = socketio(server, { path: "/socket.io/?transport=websocket" });
-const io = socketio.listen(http);
-
-console.log("server path:", io.path);
+const server = http.createServer(app);
+const io = socketio(app);
 
 // ============ Configs ============
 app.use(express.static(path.join(__dirname + "/landing_page")));
 
 app.use(express.json({ limit: "1mb" })); //set express to work with json data type
 
-// server.listen(port, (error) => {
-//     if (error) {
-//         console.log("Error while starting server :/");
-//     } else {
-//         console.log("Server up on port ", port);
-//     }
-// });
+server.listen(port, (error) => {
+    if (error) {
+        console.log("Error while starting server :/");
+    } else {
+        console.log("Server up on port ", port);
+    }
+});
 
 //============= Testing area ==============
 
