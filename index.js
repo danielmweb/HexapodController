@@ -20,7 +20,7 @@ let isUp;
 const app = express();
 require("dotenv").config();
 const server = http.createServer(app);
-const io = socketio(server, { path: "/socket.io/?transport=websocket" });
+const io = socketio(server);
 
 console.log("path: ", io.path());
 
@@ -46,6 +46,8 @@ io.on("connection", (socket) => {
     console.log("emitting to hexapod...");
     socket.emit("test", "This message was sent from the server");
 });
+
+io.emit("test", "This message was sent from the server's io");
 //============ Server Code ===========
 
 function readMovesFile() {
